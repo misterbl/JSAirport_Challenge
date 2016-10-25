@@ -36,6 +36,11 @@ describe('Airport', function () {
     expect(function () {airport.fullCapacity()}).toThrow('The airport is full, the plane can\'t land')
   });
 
+  it ('doesn\'t let a plane to land if it has already already landed', function () {
+    airport.listLandedPlanes = [plane];
+    expect(function () {airport.landedPlane(plane)}).toThrow('The plane is already in the airport')
+  });
+
   it ('forbids planes to land if the weather is stormy', function () {
     spyOn(airport, 'isBadWeather').and.returnValue(true)
     expect(function () {airport.landedPlane(plane)}).toThrow('The plane can\'t land due to stormy weather');

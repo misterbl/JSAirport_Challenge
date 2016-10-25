@@ -10,6 +10,9 @@ Airport.prototype.landedPlane = function (plane) {
   if(this.isBadWeather () === true){
     throw ('The plane can\'t land due to stormy weather');
   }
+  else if(plane.isLanded === true) {
+    throw ('The plane is already in the airport')
+  }
   else {
     this.listLandedPlanes.push(plane)
     plane.landPlane ()
