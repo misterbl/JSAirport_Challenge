@@ -37,7 +37,7 @@ describe('Airport', function () {
   });
 
   it ('doesn\'t let a plane to land if it has already already landed', function () {
-    airport.listLandedPlanes = [plane];
+    plane.landPlane ();
     expect(function () {airport.landedPlane(plane)}).toThrow('The plane is already in the airport')
   });
 
